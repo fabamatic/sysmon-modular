@@ -1,0 +1,10 @@
+<Sysmon schemaversion="4.30">
+  <EventFiltering>
+    <RuleGroup name="" groupRelation="or">
+      <ProcessCreate onmatch="exclude">
+        <!--SECTION: Wazuh-->
+        <ParentImage condition="is">C:\Program Files (x86)\ossec-agent\wazuh-agent.exe</ParentImage>
+      </ProcessCreate>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>

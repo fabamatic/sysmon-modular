@@ -4,6 +4,7 @@
       <ImageLoad onmatch="exclude">
         <Rule groupRelation="and">
           <Image condition="is">C:\Windows\System32\VaultCmd.exe</Image>
+          <Image condition="is">C:\Windows\System32\svchost.exe</Image>
           <OriginalFileName condition="is">vaultcli.dll</OriginalFileName>
         </Rule>
       </ImageLoad>

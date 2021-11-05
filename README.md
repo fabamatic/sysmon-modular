@@ -5,10 +5,20 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/olafhartong/sysmon-modular.svg?style=flat-square)](https://github.com/olafhartong/sysmon-modular/commit/master)
 ![Build Sysmon config with all modules](https://github.com/olafhartong/sysmon-modular/workflows/Build%20Sysmon%20config%20with%20all%20modules/badge.svg)
 [![Twitter](https://img.shields.io/twitter/follow/olafhartong.svg?style=social&label=Follow)](https://twitter.com/olafhartong)
+[![Discord Shield](https://discordapp.com/api/guilds/715302469751668787/widget.png?style=shield)](https://discord.gg/B5n6skNTwy)
 
 This is a Microsoft Sysinternals Sysmon [download here](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) configuration repository, set up modular for easier maintenance and generation of specific configs.
 
 The sysmonconfig.xml within the repo is automatically generated after a successful merge by the PowerShell script and a successful load by Sysmon in an Azure Pipeline run.
+
+## Pre-Grenerated configurations
+| Config | Description|
+| --- | --- |
+| [default - sysmonconfig.xml](https://raw.githubusercontent.com/olafhartong/sysmon-modular/master/sysmonconfig.xml) | This is the balanced configuration, most used, more information [here](https://github.com/olafhartong/sysmon-modular/wiki/Configuration-options#generating-the-default-configuration) |
+[verbose - sysmonconfig-excludes-only.xml](https://raw.githubusercontent.com/olafhartong/sysmon-modular/master/sysmonconfig-excludes-only.xml) |  This is the very verbose configuration, all events are included, only the exclusion modules are applied. This should not be used in production without validation, will generate a significant amount of data and might impact performance. More information [here](https://github.com/olafhartong/sysmon-modular/wiki/Configuration-options#generating-custom-configs)|
+| sysmon-mde-augmentation | A configuration to augment Defender for Endpoint, intended to augment the information and have as little overlap as possible. Coming soon |
+
+Do keep in mind that tuning per environment is _strongly_ recommended. More info on how to generate a custom config, incorporating your own modules [here](https://github.com/olafhartong/sysmon-modular/wiki/Configuration-options#generating-custom-configs)
 
 ## NOTICE; Sysmon below 13 will not completely be compatible with this configuration
 
@@ -45,7 +55,7 @@ I started a series of blog posts covering this repo;
 ## Mitre ATT&CK
 
 I strive to map all configurations to the ATT&CK framework whenever Sysmon is able to detect it.
-A current ATT&CK navigator export of all linked configurations is found [here](attack_matrix/Sysmon-modular.json) and can be viewed [here](https://mitre.github.io/attack-navigator/enterprise/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2Folafhartong%2Fsysmon-modular%2Fmaster%2Fattack_matrix%2FSysmon-modular.json&scoring=false&clear_annotations=false)
+A current ATT&CK navigator export of all linked configurations is found [here](attack_matrix/Sysmon-modular.json) and can be viewed [here](https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2Folafhartong%2Fsysmon-modular%2Fmaster%2Fattack_matrix%2FSysmon-modular.json&scoring=false&clear_annotations=false)
 ![Mapping](attack_matrix/sysmon-modular.png)
 
 ## Required actions
